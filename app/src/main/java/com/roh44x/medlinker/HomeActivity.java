@@ -19,7 +19,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.roh44x.medlinker.components.User;
 import com.roh44x.medlinker.fragment.HomeFragment;
+import com.roh44x.medlinker.fragment.ProfileFragment;
 import com.roh44x.medlinker.fragment.ProgressFragment;
+import com.roh44x.medlinker.fragment.SettingsFragment;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -68,17 +70,19 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             case R.id.add_diagnosis:
                 checkDiseaseExist();
                 break;
-//
-//            case R.id.settings:
-//                fragment = new SettingsFragment();
-//                break;
-//
-//            case R.id.profile:
-//                fragment = new ProfileFragment();
-//                break;
+
+            case R.id.settings:
+                fragment = new SettingsFragment();
+                break;
+
+            case R.id.profile:
+                fragment = new ProfileFragment();
+                break;
+
             case R.id.disconnect:
                 disconnectUser();
                 break;
+
             default:
                 break;
         }

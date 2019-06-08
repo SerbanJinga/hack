@@ -59,6 +59,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mDatabase = FirebaseDatabase.getInstance();
         userDatabase = mDatabase.getReference();
         doctorDatabase = mDatabase.getReference();
+
+        if (mAuth != null) {
+            startActivity(new Intent(MainActivity.this, HomeActivity.class));
+        }
     }
 
     public void signUpWithEmailAndPassword(String email, String password) {
@@ -91,6 +95,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(this, "Passwords don't match",Toast.LENGTH_SHORT).show();
             return;
         }
+
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
