@@ -20,13 +20,14 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.roh44x.medlinker.R;
+import com.roh44x.medlinker.components.Doctor;
 import com.roh44x.medlinker.components.User;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     public FirebaseAuth mAuth;
     public FirebaseDatabase mDatabase;
-    public DatabaseReference userDatabase;
+    public DatabaseReference userDatabase, doctorDatabase;
 
     public EditText etFirstName, etLastName, etEmail, etPassword, etRepeatPassword, etAge;
     public Button btnSignUp, btnHaveAccount;
@@ -57,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance();
         userDatabase = mDatabase.getReference();
+        doctorDatabase = mDatabase.getReference();
     }
 
     public void signUpWithEmailAndPassword(String email, String password) {
@@ -104,24 +106,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void storeUserInDatabase() {
-        final User user = new User(etFirstName.getText().toString(), etLastName.getText().toString(), etEmail.getText().toString(), "", Integer.parseInt(etAge.getText().toString()), false, false);
+        final User user = new User(etFirstName.getText().toString(), etLastName.getText().toString(), etEmail.getText().toString(), "", Integer.parseInt(etAge.getText().toString()));
         final String id = mAuth.getCurrentUser().getUid();
         userDatabase.child("Users").child(id).setValue(user).addOnCompleteListener(this, new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()) {
-                    if (check.isChecked()) {
-                        userDatabase.child("Users").child(id).child("isDoctor").setValue(true);
-                        startActivity(new Intent(MainActivity.this, DoctorVerify.class));
-                    } else {
-                        startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                       startActivity(new Intent(MainActivity.this, LoginActivity.class));
                     }
-                } else {
+                 else {
                     String error = task.getException().getMessage();
                     Toast.makeText(MainActivity.this, error, Toast.LENGTH_SHORT).show();
                 }
             }
         });
+
+        if(check.isChecked()){
+            Doctor doctor = new Doctor(etFirstName.getText().toString(), etLastName.getText().toString(), etEmail.getText().toString(), Integer.parseInt(etAge.getText().toString()), false);
+            doctorDatabase.child("Doctors").child(mAuth.getCurrentUser().getUid()).setValue(doctor).addOnCompleteListener(this, new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if(task.isSuccessful()){
+                        startActivity(new Intent(MainActivity.this, DoctorVerify.class));
+                    }else{
+                        String error = task.getException().getMessage();
+                        Toast.makeText(MainActivity.this, error, Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
     }
 
     public TranslateAnimation shakeError(){
