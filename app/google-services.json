@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "621195080796",
+    "firebase_url": "https://myproject-55b2e.firebaseio.com",
+    "project_id": "myproject-55b2e",
+    "storage_bucket": "myproject-55b2e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:621195080796:android:4d1e69cdc0cf795a",
+        "android_client_info": {
+          "package_name": "com.roh44x.medlinker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "621195080796-758kfbngb6cdhp510iqj5mdldb27jh74.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.roh44x.medlinker",
+            "certificate_hash": "adcf23817977b79e94dbebd69e819974b1df69dd"
+          }
+        },
+        {
+          "client_id": "621195080796-u64quibutnqc24vq0fib4soj2lu49g64.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0lb96tcOS8-8tI2gRTWducdYw_6GElkw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "621195080796-u64quibutnqc24vq0fib4soj2lu49g64.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "621195080796-sercpuo4bojh8hmcqp17fuibke52qnld.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.h44x.MyApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
