@@ -11,6 +11,7 @@ public class Treatment {
     public String author;
     public String body;
     public String medication;
+    public String rating;
     public int usefulCount = 0;
     public Map<String, Boolean> usefuls  = new HashMap<>();
 
@@ -19,13 +20,14 @@ public class Treatment {
 
     }
 
-    public Treatment(String uid, String title,String author, String body, String medication)
+    public Treatment(String uid, String title,String author, String body, String medication, String rating)
     {
         this.uid = uid;
         this.title = title;
         this.author = author;
         this.body = body;
         this.medication = medication;
+        this.rating = rating;
     }
 
     @Exclude
@@ -38,6 +40,7 @@ public class Treatment {
         result.put("medication", medication);
         result.put("starCount", usefulCount);
         result.put("stars", usefuls);
+        result.put("rating", rating);
 
         return result;
     }

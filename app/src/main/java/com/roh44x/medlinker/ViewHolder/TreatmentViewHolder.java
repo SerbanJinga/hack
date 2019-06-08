@@ -16,6 +16,8 @@ public class TreatmentViewHolder extends RecyclerView.ViewHolder {
     public ImageView usefulView;
     public TextView numUsefulView;
     public TextView bodyView;
+    public TextView ratingView;
+    public TextView medicationView;
 
     public TreatmentViewHolder(View itemView)
     {
@@ -27,6 +29,8 @@ public class TreatmentViewHolder extends RecyclerView.ViewHolder {
         usefulView = itemView.findViewById(R.id.useful);
         numUsefulView = itemView.findViewById(R.id.postNumUseful);
         bodyView = itemView.findViewById(R.id.postBody);
+        ratingView = itemView.findViewById(R.id.rating);
+        medicationView = itemView.findViewById(R.id.medication);
     }
 
     public void bindToTreatment(Treatment treatment, View.OnClickListener usefulClickListener)
@@ -35,6 +39,8 @@ public class TreatmentViewHolder extends RecyclerView.ViewHolder {
         authorView.setText(treatment.author);
         numUsefulView.setText(String.valueOf(treatment.usefulCount));
         bodyView.setText(treatment.body);
+        ratingView.setText(treatment.rating);
+        medicationView.setText(treatment.medication);
 
         usefulView.setOnClickListener(usefulClickListener);
     }
