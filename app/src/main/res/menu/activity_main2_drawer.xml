@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/explore"
+            android:icon="@drawable/web"
+            android:title="Explore" />
+        <item
+            android:id="@+id/progress"
+            android:icon="@drawable/rising"
+            android:title="Progress" />
+        <item
+            android:id="@+id/add_diagnosis"
+            android:icon="@drawable/monitor"
+            android:title="Add Diagnosis" />
+        <item
+            android:id="@+id/settings"
+            android:icon="@drawable/setting"
+            android:title="Settings" />
+    </group>
+
+    <item android:title="User Settings">
+        <menu>
+            <item
+                android:id="@+id/profile"
+                android:icon="@drawable/user"
+                android:title="Profile" />
+            <item
+                android:id="@+id/disconnect"
+                android:icon="@drawable/exit"
+                android:title="Disconnect" />
+        </menu>
+    </item>
+
+</menu>
