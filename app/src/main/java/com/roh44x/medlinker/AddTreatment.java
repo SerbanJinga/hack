@@ -111,15 +111,28 @@ public class AddTreatment extends AppCompatActivity {
         });
     }
 
-    private void writeNewTreatment(String userId, String username, String title, String content, String medication){
-        String key = mDatabase.child("treatments").push().getKey();
-        Treatment treatment = new Treatment(userId, title, username, content, medication);
-        Map<String, Object> treatmentValues = treatment.toMap();
+    private void writeNewTreatment(final String userId, final String username, final String title, final String content, final String medication){
+        mDatabase.child("posts").child(userId).child("lastday").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-        Map<String, Object> childUpdates = new HashMap<>();
-        childUpdates.put("/posts/" + key, treatmentValues);
-        childUpdates.put("/user-posts/" + userId + "/" + key, treatmentValues);
+                String key = dataSnapshot.getValue().toString();
+                Treatment treatment = new Treatment(userId, title, username, content, medication);
+                Map<String, Object> treatmentValues = treatment.toMap();
 
-        mDatabase.updateChildren(childUpdates);
+                Map<String, Object> childUpdates = new HashMap<>();
+                childUpdates.put("/posts/" + key, treatmentValues);
+                childUpdates.put("/user-posts/" + userId + "/" + key, treatmentValues);
+
+                mDatabase.updateChildren(childUpdates);
+
+                mDatabase.child("posts").child(userId).child("lastday").setValue(Integer.parseInt(key) + 1);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.w(TAG, "getUser:onCancelled", databaseError.toException());
+            }});
     }
 }
