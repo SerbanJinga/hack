@@ -97,7 +97,7 @@ public class AddTreatment extends AppCompatActivity {
                             "Error: could not fetch user.",
                             Toast.LENGTH_SHORT).show();
                 }else {
-                    writeNewTreatment(userId, user.firstName + user.lastName, title, content, medication);
+                    writeNewTreatment(userId, user.firstName + " " + user.lastName, title, content, medication);
                 }
 
                 finish();
