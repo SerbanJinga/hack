@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.animation.CycleInterpolator;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public EditText etFirstName, etLastName, etEmail, etPassword, etRepeatPassword, etAge;
     public Button btnSignUp, btnHaveAccount;
+    public CheckBox check;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         etAge = (EditText)findViewById(R.id.etAge);
         btnSignUp = (Button)findViewById(R.id.btnRegister);
         btnHaveAccount = (Button)findViewById(R.id.btnAlreadyAcc);
+        check = (CheckBox)findViewById(R.id.checkBox);
 
         btnSignUp.setOnClickListener(this);
         btnHaveAccount.setOnClickListener(this);
@@ -101,13 +104,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void storeUserInDatabase() {
-        final User user = new User(etFirstName.getText().toString(), etLastName.getText().toString(), etEmail.getText().toString(), "", Integer.parseInt(etAge.getText().toString()));
-        String id = mAuth.getCurrentUser().getUid();
+        final User user = new User(etFirstName.getText().toString(), etLastName.getText().toString(), etEmail.getText().toString(), "", Integer.parseInt(etAge.getText().toString()), false, false);
+        final String id = mAuth.getCurrentUser().getUid();
         userDatabase.child("Users").child(id).setValue(user).addOnCompleteListener(this, new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()) {
-                    startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                    if (check.isChecked()) {
+                        userDatabase.child("Users").child(id).child("isDoctor").setValue(true);
+                        startActivity(new Intent(MainActivity.this, DoctorVerify.class));
+                    } else {
+                        startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                    }
                 } else {
                     String error = task.getException().getMessage();
                     Toast.makeText(MainActivity.this, error, Toast.LENGTH_SHORT).show();
