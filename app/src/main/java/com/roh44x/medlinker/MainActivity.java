@@ -102,12 +102,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void storeUserInDatabase() {
         final User user = new User(etFirstName.getText().toString(), etLastName.getText().toString(), etEmail.getText().toString(), null, Integer.parseInt(etAge.getText().toString()));
-
-        userDatabase.child("Users").child(mAuth.getCurrentUser().getUid()).setValue(user).addOnCompleteListener(this, new OnCompleteListener<Void>() {
+        String id = mAuth.getCurrentUser().getUid();
+        userDatabase.child("Users").child(id).setValue(user).addOnCompleteListener(this, new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()) {
-                    startActivity(new Intent(MainActivity.this, MainActivity.class));
+                    startActivity(new Intent(MainActivity.this, LoginActivity.class));
                 } else {
                     String error = task.getException().getMessage();
                     Toast.makeText(MainActivity.this, error, Toast.LENGTH_SHORT).show();
@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(i == R.id.btnRegister) {
             signUpWithEmailAndPassword(etEmail.getText().toString(), etPassword.getText().toString());
         } else if(i == R.id.btnAlreadyAcc){
-            startActivity(new Intent(MainActivity.this, MainActivity.class));
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
         }
     }
 

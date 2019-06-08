@@ -84,7 +84,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                            startActivity(new Intent(LoginActivity.this, HomeActivity.class));
                         } else {
                             String error = task.getException().getMessage();
                             Toast.makeText(LoginActivity.this, error, Toast.LENGTH_SHORT).show();
@@ -110,5 +110,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
-
+    //TODO
+//
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//
+//        if(mAuth != null)
+//        {
+//            startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+//        }
+//    }
 }

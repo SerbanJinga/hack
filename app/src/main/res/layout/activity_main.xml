@@ -60,6 +60,17 @@
         android:hint="Repeat Password"
         android:inputType="textPassword" />
 
+    <EditText
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/etAge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Age "
+        android:inputType="number" />
+
     <Button
         android:id="@+id/btnRegister"
         android:layout_width="match_parent"
@@ -67,6 +78,7 @@
         android:layout_margin="40dp"
         android:text="Register"
         android:textAllCaps="false" />
+
 
 
     <Button
@@ -77,12 +89,5 @@
         android:text="Already have an account? Sign In Now!"
         android:textAllCaps="false" />
 
-    <EditText
-        android:id="@+id/etAge"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Age "
-        android:inputType="number" />
 
 </LinearLayout>
