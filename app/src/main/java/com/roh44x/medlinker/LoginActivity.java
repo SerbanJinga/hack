@@ -110,7 +110,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
-    //TODO
 //
 //    @Override
 //    protected void onStart() {

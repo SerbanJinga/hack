@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void storeUserInDatabase() {
-        final User user = new User(etFirstName.getText().toString(), etLastName.getText().toString(), etEmail.getText().toString(), null, Integer.parseInt(etAge.getText().toString()));
+        final User user = new User(etFirstName.getText().toString(), etLastName.getText().toString(), etEmail.getText().toString(), "", Integer.parseInt(etAge.getText().toString()));
         String id = mAuth.getCurrentUser().getUid();
         userDatabase.child("Users").child(id).setValue(user).addOnCompleteListener(this, new OnCompleteListener<Void>() {
             @Override
