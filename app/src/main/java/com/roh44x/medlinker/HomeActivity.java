@@ -8,9 +8,16 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.roh44x.medlinker.components.User;
 import com.roh44x.medlinker.fragment.HomeFragment;
 import com.roh44x.medlinker.fragment.ProgressFragment;
 
@@ -19,12 +26,14 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     public NavigationView navigationView;
 
     private FirebaseAuth mAuth;
+    private DatabaseReference diagnosisRef;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
         mAuth = FirebaseAuth.getInstance();
+        diagnosisRef = FirebaseDatabase.getInstance().getReference().child("Users").child(mAuth.getCurrentUser().getUid());
 
         loadFragment(new HomeFragment());
 
@@ -57,7 +66,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 break;
 
             case R.id.add_diagnosis:
-                startActivity(new Intent(HomeActivity.this, AddDiagnosis.class));
+                checkDiseaseExist();
                 break;
 //
 //            case R.id.settings:
@@ -101,5 +110,27 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     private void disconnectUser(){
         mAuth.signOut();
         startActivity(new Intent(HomeActivity.this, LoginActivity.class));
+    }
+
+
+    private void checkDiseaseExist(){
+        diagnosisRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                User user = dataSnapshot.getValue(User.class);
+
+                    if(!user.disease.equals("")){
+                        startActivity(new Intent(HomeActivity.this, AddTreatment.class));
+                    }else{
+                        startActivity(new Intent(HomeActivity.this, AddDiagnosis.class));
+                    }
+                }
+
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 }

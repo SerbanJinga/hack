@@ -44,4 +44,16 @@ public class HomeFragment extends Fragment {
 
 
 
+    public Query getQuery(DatabaseReference databaseReference)
+    {
+
+        return databaseReference.child("user-posts")
+                .child(getUid());
+    }
+
+    public String getUid(){
+        return FirebaseAuth.getInstance().getCurrentUser().getUid();
+    }
+
+
 }

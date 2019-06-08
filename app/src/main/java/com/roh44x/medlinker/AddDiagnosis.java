@@ -39,6 +39,7 @@ public class AddDiagnosis extends AppCompatActivity implements View.OnClickListe
 
         if(i == R.id.addDiseasebtn){
             mDatabase.setValue(diseaseField.getText().toString());
+            finish();
         }
     }
 }
