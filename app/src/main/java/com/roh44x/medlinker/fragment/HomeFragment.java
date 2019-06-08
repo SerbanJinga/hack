@@ -23,6 +23,7 @@ import com.google.firebase.database.MutableData;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.Transaction;
 import com.roh44x.medlinker.R;
+import com.roh44x.medlinker.TreatmentDetail;
 import com.roh44x.medlinker.ViewHolder.TreatmentViewHolder;
 import com.roh44x.medlinker.components.Treatment;
 
@@ -88,10 +89,10 @@ public class HomeFragment extends Fragment {
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        //TODO
-//                        Intent intent = new Intent(getActivity(), PostDetailActivity.class);
-//                        intent.putExtra(PostDetailActivity.EXTRA_POST_KEY, postKey);
-//                        startActivity(intent);
+
+                        Intent intent = new Intent(getActivity(), TreatmentDetail.class);
+                        intent.putExtra(TreatmentDetail.EXTRA_POST_KEY, postKey);
+                        startActivity(intent);
                     }
                 });
 
