@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.roh44x.medlinker.fragment.HomeFragment;
+import com.roh44x.medlinker.fragment.ProgressFragment;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 

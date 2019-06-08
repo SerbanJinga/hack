@@ -1,4 +1,4 @@
-package com.roh44x.medlinker;
+package com.roh44x.medlinker.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,11 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class HomeFragment extends Fragment {
+import com.roh44x.medlinker.R;
+
+public class ProgressFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.home, null);
+        View view = inflater.inflate(R.layout.progress, null);
+
 
         return view;
     }
