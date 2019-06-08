@@ -1,47 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    android:id="@+id/mainLayout"
-    android:orientation="vertical"
+    android:id="@+id/Vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-<EditText
-    android:id="@+id/etEmailLogin"
-    android:hint="Email"
-    android:inputType="textEmailAddress"
-    android:layout_marginTop="40dp"
-    android:layout_marginLeft="20dp"
-    android:layout_marginRight="20dp"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/etFirstName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="20dp"
+        android:hint="First Name"
+        android:inputType="textEmailAddress" />
 
     <EditText
-        android:id="@+id/etPasswordLogin"
-        android:hint="Password"
-        android:inputType="textPassword"
+        android:id="@+id/etLastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
         android:layout_marginRight="20dp"
+        android:hint="Last Name"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="40dp"
+        android:inputType="textEmailAddress"
+        android:hint="Email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:hint="Password"
+        android:inputType="textPassword" />
+
+
+    <EditText
+        android:id="@+id/etRepeatPass"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:hint="Repeat Password"
+        android:inputType="textPassword" />
 
     <Button
-        android:id="@+id/btnLogin"
-        android:textAllCaps="false"
-        android:text="Login"
-        android:layout_margin="60dp"
+        android:id="@+id/btnRegister"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_margin="40dp"
+        android:text="Register"
+        android:textAllCaps="false" />
+
 
     <Button
-        android:id="@+id/btnCreateAccount"
-        android:text="Don't have an account? Sign Up Now"
-        android:textAllCaps="false"
-        style="?android:attr/borderlessButtonStyle"
+        android:id="@+id/btnAlreadyAcc"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="Already have an account? Sign In Now!"
+        android:textAllCaps="false" />
+
+    <EditText
+        android:id="@+id/etAge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Age "
+        android:inputType="number" />
+
 </LinearLayout>
