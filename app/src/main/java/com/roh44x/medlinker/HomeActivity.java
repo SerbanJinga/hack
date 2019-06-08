@@ -1,5 +1,6 @@
 package com.roh44x.medlinker;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -9,13 +10,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     public NavigationView navigationView;
+
+    private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        mAuth = FirebaseAuth.getInstance();
+
+        loadFragment(new HomeFragment());
+
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
+
+        navigationView.setNavigationItemSelectedListener(this);
     }
     @Override
     public void onBackPressed() {
@@ -30,6 +43,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
+
         Fragment fragment = null;
         switch (menuItem.getItemId()){
             case R.id.explore:
@@ -40,14 +54,22 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 fragment = new ProgressFragment();
                 break;
 
-//            case R.id.add_diagnosis:
-//                fragment = new DiagnosticFragment();
-//                break;
+            case R.id.add_diagnosis:
+                startActivity(new Intent(HomeActivity.this, AddDiagnosis.class));
+                break;
 //
 //            case R.id.settings:
 //                fragment = new SettingsFragment();
 //                break;
-
+//
+//            case R.id.profile:
+//                fragment = new ProfileFragment();
+//                break;
+            case R.id.disconnect:
+                disconnectUser();
+                break;
+            default:
+                break;
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -72,5 +94,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         }
 
         return false;
+    }
+
+    private void disconnectUser(){
+        mAuth.signOut();
+        startActivity(new Intent(HomeActivity.this, LoginActivity.class));
     }
 }
