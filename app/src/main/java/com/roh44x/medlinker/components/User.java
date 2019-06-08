@@ -7,18 +7,14 @@ public class User {
     public String email;
     public String disease;
     public Integer age;
-    public Boolean isDoctor;
-    public Boolean isConfirmed;
 
     public User() {}
 
-    public User(String firstName, String lastName, String email, String disease, Integer age, Boolean isDoctor, Boolean isConfirmed) {
+    public User(String firstName, String lastName, String email, String disease, Integer age){
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.disease = disease;
         this.age = age;
-        this.isDoctor = isDoctor;
-        this.isConfirmed = isConfirmed;
     }
 }

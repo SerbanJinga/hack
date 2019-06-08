@@ -13,6 +13,7 @@
         <activity android:name=".AddDiagnosis" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".HomeActivity" />
+        <activity android:name=".DoctorVerify"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

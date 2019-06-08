@@ -96,7 +96,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()) {
+                            if(check.isChecked()){
+                                storeDoctorInDatabase();
+                            }else{
                             storeUserInDatabase();
+                            }
                         } else {
                             String error = task.getException().getMessage();
                             Toast.makeText(MainActivity.this, error, Toast.LENGTH_SHORT).show();
@@ -121,8 +125,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        if(check.isChecked()){
-            Doctor doctor = new Doctor(etFirstName.getText().toString(), etLastName.getText().toString(), etEmail.getText().toString(), Integer.parseInt(etAge.getText().toString()), false);
+
+    }
+
+    public void storeDoctorInDatabase(){
+            Doctor doctor = new Doctor(etFirstName.getText().toString(), etLastName.getText().toString(), etEmail.getText().toString(), Integer.parseInt(etAge.getText().toString()), false, "");
             doctorDatabase.child("Doctors").child(mAuth.getCurrentUser().getUid()).setValue(doctor).addOnCompleteListener(this, new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
@@ -135,7 +142,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             });
         }
-    }
+
 
     public TranslateAnimation shakeError(){
         TranslateAnimation shake = new TranslateAnimation(0, 10, 0, 0);
