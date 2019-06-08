@@ -113,6 +113,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     private void disconnectUser(){
         mAuth.signOut();
+
         startActivity(new Intent(HomeActivity.this, LoginActivity.class));
     }
 

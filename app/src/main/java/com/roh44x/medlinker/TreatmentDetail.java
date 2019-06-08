@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -23,7 +24,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 import com.roh44x.medlinker.components.Comment;
+import com.roh44x.medlinker.components.Doctor;
 import com.roh44x.medlinker.components.Treatment;
 import com.roh44x.medlinker.components.User;
 
@@ -50,10 +54,16 @@ public class TreatmentDetail extends AppCompatActivity implements View.OnClickLi
     private Button mCommentButton;
     private RecyclerView mCommentsRecycler;
 
+    private DatabaseReference userOrDoctorReference, altDB;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_treatment_detail);
+
+        userOrDoctorReference = FirebaseDatabase.getInstance().getReference();
+
+
 
         mPostKey = getIntent().getStringExtra(EXTRA_POST_KEY);
         if(mPostKey == null)
@@ -75,7 +85,39 @@ public class TreatmentDetail extends AppCompatActivity implements View.OnClickLi
         mCommentsRecycler.setLayoutManager(new LinearLayoutManager(this));
 
 
+        userOrDoctorReference.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                String myParent = dataSnapshot.getKey();
+                Log.d("mortiimatii", myParent);
+                if(myParent.equals("Users")) {
+                    mCommentButton.setEnabled(false);
+                }
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
     }
+
 
     @Override
     protected void onStart() {
@@ -131,12 +173,12 @@ public class TreatmentDetail extends AppCompatActivity implements View.OnClickLi
 
     private void postComment(){
         final String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        FirebaseDatabase.getInstance().getReference().child("Users").child(uid)
+        FirebaseDatabase.getInstance().getReference().child("Doctors").child(uid)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        User user = dataSnapshot.getValue(User.class);
-                        String author = user.firstName + " " + user.lastName;
+                        Doctor doctor = dataSnapshot.getValue(Doctor.class);
+                        String author = doctor.firstName + " " + doctor.lastName;
 
                         String commentText = mCommentField.getText().toString();
                         Comment comment = new Comment(uid, author, commentText);

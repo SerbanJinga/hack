@@ -60,9 +60,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         userDatabase = mDatabase.getReference();
         doctorDatabase = mDatabase.getReference();
 
-        if (mAuth != null) {
-            startActivity(new Intent(MainActivity.this, HomeActivity.class));
-        }
+/*
+//        if (mAuth != null) {
+//            startActivity(new Intent(MainActivity.this, HomeActivity.class));
+//        }
+*/
     }
 
     public void signUpWithEmailAndPassword(String email, String password) {
@@ -165,6 +167,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
         }
     }
+
+
 
 
 }

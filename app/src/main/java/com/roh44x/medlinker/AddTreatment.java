@@ -1,6 +1,11 @@
 package com.roh44x.medlinker;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -33,6 +38,8 @@ public class AddTreatment extends AppCompatActivity {
 
     private EditText titleField, contentField, medicationField;
     private Button btnAddTreatment;
+
+    private static final String CHANNEL = "22";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,6 +105,7 @@ public class AddTreatment extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show();
                 }else {
                     writeNewTreatment(userId, user.firstName + " " + user.lastName, title, content, medication);
+                    createNotif(title, content);
                 }
 
                 finish();
@@ -121,5 +129,19 @@ public class AddTreatment extends AppCompatActivity {
         childUpdates.put("/user-posts/" + userId + "/" + key, treatmentValues);
 
         mDatabase.updateChildren(childUpdates);
+    }
+
+
+
+
+    private void createNotif(String textTitle, String textContent){
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "22")
+                .setSmallIcon(R.drawable.ic_menu_gallery)
+                .setContentTitle(textTitle)
+                .setContentText(textContent)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+        NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this);
+        notificationManagerCompat.notify(22, builder.build());
     }
 }
