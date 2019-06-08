@@ -20,6 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.roh44x.medlinker.R;
+import com.roh44x.medlinker.components.Doctor;
 import com.roh44x.medlinker.components.User;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
