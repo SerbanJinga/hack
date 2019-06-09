@@ -48,6 +48,7 @@ public class AddTreatment extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_treatment);
+        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
 
         initFirebase();
 
@@ -178,7 +179,7 @@ public class AddTreatment extends AppCompatActivity {
 
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "22")
-                .setSmallIcon(R.drawable.ic_menu_gallery)
+                .setSmallIcon(R.drawable.ic_menu_camera )
                 .setContentTitle(textTitle)
                 .setContentText(textContent)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)

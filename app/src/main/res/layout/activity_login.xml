@@ -9,6 +9,12 @@
     android:orientation="vertical"
     tools:context=".LoginActivity">
 
+    <ImageView
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:src="@drawable/logo"
+        android:layout_width="240dp"
+        android:layout_height="200dp" />
     <EditText
         android:paddingLeft="10dp"
         android:background="@drawable/edit_text_up"

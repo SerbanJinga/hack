@@ -60,6 +60,7 @@ public class TreatmentDetail extends AppCompatActivity implements View.OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_treatment_detail);
+        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
 
         userOrDoctorReference = FirebaseDatabase.getInstance().getReference();
 
@@ -85,36 +86,6 @@ public class TreatmentDetail extends AppCompatActivity implements View.OnClickLi
         mCommentsRecycler.setLayoutManager(new LinearLayoutManager(this));
 
 
-        userOrDoctorReference.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                String myParent = dataSnapshot.getKey();
-                Log.d("mortiimatii", myParent);
-                if(myParent.equals("Users")) {
-                    mCommentButton.setEnabled(false);
-                }
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
 
     }
 

@@ -42,22 +42,22 @@ public class ProgressFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.progress, null);
 
-        final EditText et_name = (EditText) view.findViewById(R.id.editText_name); //EditText is defined as edittext in xml
-        final TextView tv_name = (TextView) view.findViewById(R.id.textView_name); //TextView is defined as textview in xml
-        final EditText et_id = (EditText) view.findViewById(R.id.editText_id); //EditText is defined as edittext in xml
-        final TextView tv_id = (TextView) view.findViewById(R.id.textView_id); //TextView is defined as textview in xml
-        final EditText et_age = (EditText) view.findViewById(R.id.editText_age); //EditText is defined as edittext in xml
-        final TextView tv_age = (TextView) view.findViewById(R.id.textView_age); //TextView is defined as textview in xml
-        Button Enter = (Button) view.findViewById(R.id.button1); //Button is defined as button in xml
-        Button Clear = (Button) view.findViewById(R.id.button2); //Button is defined as button in xml
+        final EditText et_name = (EditText) view.findViewById(R.id.editText_name);
+        final TextView tv_name = (TextView) view.findViewById(R.id.textView_name);
+        final EditText et_id = (EditText) view.findViewById(R.id.editText_id);
+        final TextView tv_id = (TextView) view.findViewById(R.id.textView_id);
+        final EditText et_age = (EditText) view.findViewById(R.id.editText_age);
+        final TextView tv_age = (TextView) view.findViewById(R.id.textView_age);
+        Button Enter = (Button) view.findViewById(R.id.button1);
+        Button Clear = (Button) view.findViewById(R.id.button2);
 
         Enter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = et_name.getText().toString(); //Get txt from et when button is clicked
+                String name = et_name.getText().toString();
                 tv_name.append("\n");
                 tv_name.append(name);
-                et_name.setText("");//String age = et_age.getText().toString(); //Get txt from et when button is clicked
+                et_name.setText("");
                 String id = et_id.getText().toString(); //Get txt from et when button is clicked
                 tv_id.append("\n");
                 tv_id.append(id);

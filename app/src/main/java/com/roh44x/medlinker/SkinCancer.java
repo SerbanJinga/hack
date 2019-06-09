@@ -9,5 +9,6 @@ public class SkinCancer extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_skin_cancer);
+        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
     }
 }

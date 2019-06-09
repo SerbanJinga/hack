@@ -11,6 +11,7 @@ public class CancerActivity extends AppCompatActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cancer);
+        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
 
         findViewById(R.id.bone_cancer).setOnClickListener(this);
         findViewById(R.id.breast_cancer).setOnClickListener(this);
