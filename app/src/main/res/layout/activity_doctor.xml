@@ -9,23 +9,31 @@
         android:orientation="vertical">
 
         <EditText
+            android:layout_margin="20dp"
+            android:paddingLeft="10dp"
+            android:hint="https://url.example.com"
+            android:background="@drawable/edit_text"
             android:id="@+id/diploma"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Name" />
+             />
 
         <TextView
+            android:layout_margin="20dp"
             android:id="@+id/caciu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="This information that you'll provide will remain private. Our team needs to have the confirmation that you are certified in the medical field." />
 
         <Button
+            android:layout_margin="40dp"
+            android:background="@drawable/background_gradient"
+            android:textAllCaps="false"
             android:id="@+id/butonache"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:text="Submit Application" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -21,10 +22,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.MutableData;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.Transaction;
+import com.google.firebase.database.ValueEventListener;
 import com.roh44x.medlinker.R;
 import com.roh44x.medlinker.TreatmentDetail;
 import com.roh44x.medlinker.ViewHolder.TreatmentViewHolder;
 import com.roh44x.medlinker.components.Treatment;
+import com.roh44x.medlinker.components.User;
 
 public class ProfileFragment extends Fragment {
     private DatabaseReference mDatabase;
@@ -38,6 +41,8 @@ public class ProfileFragment extends Fragment {
 
     private LinearLayoutManager mManager;
 
+    private TextView username;
+
     public ProfileFragment(){}
 
     @Nullable
@@ -48,6 +53,22 @@ public class ProfileFragment extends Fragment {
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mRecycler = view.findViewById(R.id.profilePostsRecycler);
         mRecycler.setHasFixedSize(true);
+
+        username = (TextView)view.findViewById(R.id.profileName);
+
+        mDatabase.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        User user = dataSnapshot.getValue(User.class);
+                        username.setText(user.firstName + " " + user.lastName);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
         return view;
     }
 

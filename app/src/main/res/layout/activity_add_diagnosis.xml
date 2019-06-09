@@ -10,15 +10,39 @@
 
 
     <EditText
+        android:paddingLeft="10dp"
+        android:background="@drawable/edit_text"
+        android:layout_margin="40dp"
         android:id="@+id/addDisease"
         android:hint="Add Disease"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="50dp" />
 
-    <Button
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:textColor="@color/albSmecher"
+            android:background="@drawable/background_gradient"
+            android:layout_margin="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="0.5"
+            android:id="@+id/btnCancel"
+            android:text="Cancel"
+            android:textAllCaps="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+android:layout_margin="20dp"
+            android:background="@drawable/background_gradient"
+        android:layout_weight="0.5"
         android:id="@+id/addDiseasebtn"
         android:text="Add"
         android:textAllCaps="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    </LinearLayout>
 </LinearLayout>

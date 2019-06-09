@@ -22,6 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.MutableData;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.Transaction;
+import com.roh44x.medlinker.CancerActivity;
 import com.roh44x.medlinker.R;
 import com.roh44x.medlinker.TreatmentDetail;
 import com.roh44x.medlinker.ViewHolder.TreatmentViewHolder;
@@ -93,6 +94,12 @@ public class HomeFragment extends Fragment {
                         Intent intent = new Intent(getActivity(), TreatmentDetail.class);
                         intent.putExtra(TreatmentDetail.EXTRA_POST_KEY, postKey);
                         startActivity(intent);
+                    }
+                });
+                holder.ratingView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(getActivity(), CancerActivity.class));
                     }
                 });
 

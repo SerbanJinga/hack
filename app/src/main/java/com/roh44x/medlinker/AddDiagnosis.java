@@ -30,6 +30,7 @@ public class AddDiagnosis extends AppCompatActivity implements View.OnClickListe
         diseaseField = (EditText) findViewById(R.id.addDisease);
         addDisease = (Button) findViewById(R.id.addDiseasebtn);
 
+        findViewById(R.id.btnCancel).setOnClickListener(this);
         addDisease.setOnClickListener(this);
     }
 
@@ -39,6 +40,8 @@ public class AddDiagnosis extends AppCompatActivity implements View.OnClickListe
 
         if(i == R.id.addDiseasebtn){
             mDatabase.setValue(diseaseField.getText().toString());
+            finish();
+        }else if(i == R.id.btnCancel){
             finish();
         }
     }

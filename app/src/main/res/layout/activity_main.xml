@@ -9,75 +9,106 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+
     <EditText
+        android:layout_marginTop="40dp"
+        android:paddingLeft="10dp"
+        android:background="@drawable/edit_text_up"
         android:id="@+id/etFirstName"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:hint="First Name"
         android:inputType="textEmailAddress" />
 
     <EditText
+        android:paddingLeft="10dp"
+        android:background="@drawable/edit_text"
         android:id="@+id/etLastName"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
         android:hint="Last Name"
         android:inputType="textEmailAddress" />
 
     <EditText
+        android:paddingLeft="10dp"
         android:id="@+id/etEmail"
+        android:background="@drawable/edit_text"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="40dp"
         android:inputType="textEmailAddress"
         android:hint="Email"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="50dp" />
+
 
     <EditText
+        android:paddingLeft="10dp"
+        android:background="@drawable/edit_text"
         android:id="@+id/etPassword"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
         android:hint="Password"
         android:inputType="textPassword" />
 
 
     <EditText
+        android:paddingLeft="10dp"
+        android:background="@drawable/edit_text"
         android:id="@+id/etRepeatPass"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_height="50dp"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:hint="Repeat Password"
         android:inputType="textPassword" />
 
+
     <EditText
+        android:background="@drawable/edit_text_down"
+        android:paddingLeft="10dp"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
         android:id="@+id/etAge"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:ems="10"
         android:hint="Age "
         android:inputType="number" />
 
+    <LinearLayout
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <CheckBox
+        android:layout_marginLeft="20dp"
+        android:layout_weight="0.7"
+        android:layout_marginTop="20dp"
         android:id="@+id/checkBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="CheckBox" />
+        android:text="Doctor" />
+        <CheckBox
+            android:layout_marginLeft="20dp"
+            android:layout_weight="0.3"
+            android:layout_marginTop="20dp"
+            android:id="@+id/checkBox2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Keep me Signed In" />
 
+
+    </LinearLayout>
     <Button
         android:id="@+id/btnRegister"
+        android:background="@drawable/background_gradient"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="40dp"

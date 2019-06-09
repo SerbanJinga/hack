@@ -10,36 +10,71 @@
 
 
     <EditText
+        android:background="@drawable/edit_text_up"
+        android:paddingLeft="10dp"
         android:id="@+id/titleTreatment"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="40dp"
         android:layout_marginRight="20dp"
         android:hint="Title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="50dp" />
 
     <EditText
+        android:paddingLeft="10dp"
+        android:background="@drawable/edit_text"
         android:id="@+id/contentTreatment"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
         android:hint="Content"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="50dp" />
 
     <EditText
+        android:paddingLeft="10dp"
+        android:background="@drawable/edit_text_down"
         android:id="@+id/medicationTreatment"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
         android:hint="Add Medication"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+<LinearLayout
+    android:layout_marginTop="40dp"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <Button
+        android:textColor="@color/albSmecher"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_weight="0.5"
+        android:text="Cancel"
+        android:textAllCaps="false"
+        android:background="@drawable/background_gradient"
+        android:id="@+id/btnCancel2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_weight="0.5"
+        android:text="Add Treatment"
+        android:textAllCaps="false"
+        android:background="@drawable/background_gradient"
+        android:id="@+id/btnAddTreatment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
 
-    <Button
-        android:id="@+id/btnAddTreatment"
-        android:layout_margin="40dp"
+
+</LinearLayout>
+    <EditText
+        android:id="@+id/ratingField"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 </LinearLayout>

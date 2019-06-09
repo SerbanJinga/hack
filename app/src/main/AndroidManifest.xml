@@ -9,7 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TreatmentDetail"></activity>
+        <activity android:name=".SkinCancer"></activity>
+        <activity android:name=".PulmonaryCancer" />
+        <activity android:name=".BreastCancer" />
+        <activity android:name=".BoneCancer" />
+        <activity android:name=".CancerActivity" />
+        <activity android:name=".TreatmentDetail" />
         <activity android:name=".AddTreatment" />
         <activity android:name=".AddDiagnosis" />
         <activity android:name=".LoginActivity" />

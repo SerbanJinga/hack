@@ -10,6 +10,8 @@
     tools:context=".LoginActivity">
 
     <EditText
+        android:paddingLeft="10dp"
+        android:background="@drawable/edit_text_up"
         android:id="@+id/etEmail"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -17,20 +19,22 @@
         android:inputType="textEmailAddress"
         android:hint="Email"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="50dp" />
 
     <EditText
+        android:paddingLeft="10dp"
+        android:background="@drawable/edit_text_down"
         android:id="@+id/etPassword"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
         android:hint="Password"
         android:inputType="textPassword" />
 
 
     <Button
+        android:background="@drawable/background_gradient"
         android:id="@+id/btnSignIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -2,5 +2,13 @@
 <resources>
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">@android:color/transparent</color>
+
+    <color name="startGradient">#C61D4B9D</color>
+    <color name="midGradient">#CB7E509A</color>
+    <color name="endGradient">#D3E04599</color>
+
+    <color name="albSmecher">#85FFFFFF</color>
+
+
 </resources>

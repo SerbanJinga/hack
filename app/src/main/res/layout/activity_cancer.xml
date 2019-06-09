@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CancerActivity">
+
+    <TextView
+        android:layout_margin="20dp"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:text="Select your type of cancer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:paddingRight="20dp"
+        android:drawableRight="@drawable/next"
+        android:id="@+id/breast_cancer"
+        android:textAllCaps="false"
+        android:text="Breast Cancer"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:paddingRight="20dp"
+        android:drawableRight="@drawable/next"
+        android:id="@+id/skin_cancer"
+        android:textAllCaps="false"
+        android:text="Skin Cancer"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:paddingRight="20dp"
+        android:drawableRight="@drawable/next"
+        android:id="@+id/pulmonary_cancer"
+        android:textAllCaps="false"
+        android:text="Pulmonary Cancer"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:paddingRight="20dp"
+        android:drawableRight="@drawable/next"
+        android:id="@+id/bone_cancer"
+        android:textAllCaps="false"
+        android:text="Bone Cancer"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>
